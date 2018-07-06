@@ -1,7 +1,7 @@
 # Angular Tour of Heroes
 This is git repo from the classical [Angular Tour of Heroes](https://angular.io/tutorial)
 
-##How to run the project
+## How to run the project
 First, you should have the latest nodejs. Install it from your favorite package manager or directly from the website https://nodejs.org/en/
 
 Then:
