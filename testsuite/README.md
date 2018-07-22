@@ -11,4 +11,4 @@ Also put the path to /bin directory into PATH variable. Check it by command ``mv
 1. Start web-application Tour of Heroes
 2. Go to directory of the project: ``cd testsfortoh``
 3. Run tests by this command:  ``mvn test -Dtest=MainScenarios``
-**If there are any problems with connection to Central Repository of maven, try to specify protocol by defining option: ``-Dhttps.protocols=TLSv1.2``**
+**If there are any problems with connection to Central Repository of maven, try to specify protocol by defining option:** ``-Dhttps.protocols=TLSv1.2``
