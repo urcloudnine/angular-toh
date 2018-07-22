@@ -20,67 +20,67 @@ import java.util.List;
 
 public class MainScenarios {
 
-    private static WebDriver driver;
+	private static WebDriver driver;
  
-    @BeforeClass
-    public static void setup() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
-        driver.get("http://localhost:4200");
-    }
+	@BeforeClass
+	public static void setup() {
+		driver = new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver.get("http://localhost:4200");
+	}
 
 	@Test
 	public void Test01() {	//_SearchHeroByTwoLetters
 		WebElement FillSearchBox = driver.findElement(By.id("search-box"));
 		FillSearchBox.sendKeys("Ma");
-		try            
-        {              
+		try			
+		{			  
 			Thread.sleep (1000); 	// ExpectedConditions should be used instead, but versioning of dependencies killed all my time, therefore - leaving it as is
 			List<WebElement>HeroesFound = driver.findElements(By.partialLinkText("Ma"));
 			System.out.println(HeroesFound.size()+ " heroes found");
 			Assert.assertTrue(HeroesFound.size()==4);
 			FillSearchBox.clear();			
-        }          
-        catch (InterruptedException interruptedException)          
-        {              
-            System.out.println( "Interrupted Exception. Beware of the dog" +interruptedException);          
-        }
+		}		  
+		catch (InterruptedException interruptedException)		  
+		{			  
+			System.out.println( "Interrupted Exception. Beware of the dog" +interruptedException);		  
+		}
 	}
 	
 	@Test
 	public void Test02() {	//_SearchHeroNotExist
 		WebElement FillSearchBox = driver.findElement(By.id("search-box"));
 		FillSearchBox.sendKeys("Magneto");
-		try            
-        {              
+		try			
+		{			  
 			Thread.sleep (1000); 	// ExpectedConditions should be used instead, but versioning of dependencies killed all my time, therefore - leaving it as is
 			List<WebElement>HeroesFound = driver.findElements(By.partialLinkText("Magneto"));
 			System.out.println(HeroesFound.size()+ " heroes found");
 			Assert.assertTrue(HeroesFound.size()==0);   
 			FillSearchBox.clear();			
-        }          
-        catch (InterruptedException interruptedException)          
-        {              
-            System.out.println( "Interrupted Exception. Beware of the dog" +interruptedException);          
-        }
+		}		  
+		catch (InterruptedException interruptedException)		  
+		{			  
+			System.out.println( "Interrupted Exception. Beware of the dog" +interruptedException);		  
+		}
 	}
 	
 	@Test
 	public void Test03() {	//_SearchHeroExist
 		WebElement FillSearchBox = driver.findElement(By.id("search-box"));
 		FillSearchBox.sendKeys("RubberMan");
-		try            
-        {              
+		try			
+		{			  
 			Thread.sleep (1000); 	// ExpectedConditions should be used instead, but versioning of dependencies killed all my time, therefore - leaving it as is
 			List<WebElement>HeroesFound = driver.findElements(By.partialLinkText("RubberMan"));
 			System.out.println(HeroesFound.size()+ " heroes found");
-			Assert.assertTrue(HeroesFound.size()==1);      
-        }          
-        catch (InterruptedException interruptedException)          
-        {              
-            System.out.println( "Interrupted Exception. Beware of the dog" +interruptedException);          
-        }
+			Assert.assertTrue(HeroesFound.size()==1);	  
+		}		  
+		catch (InterruptedException interruptedException)		  
+		{			  
+			System.out.println( "Interrupted Exception. Beware of the dog" +interruptedException);		  
+		}
 	}
 	
 	@Test
@@ -131,7 +131,7 @@ public class MainScenarios {
 	}
 	
 	@AfterClass
-    public static void tearDown() {
+	public static void tearDown() {
 		driver.quit();
-    }
+	}
 }
